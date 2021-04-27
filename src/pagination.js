@@ -33,7 +33,7 @@ export default class Pagination {
       button.textContent = button.dataset.action;
     });
 
-    this.toggleBtnVisibility();
+    // this.toggleBtnVisibility();
   }
 
   toggleBtnVisibility() {

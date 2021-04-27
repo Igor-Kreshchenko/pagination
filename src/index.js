@@ -10,10 +10,13 @@ const refs = {
   rightDotsRef: document.querySelector('.right-dots'),
 };
 
-refs.nextBtnRef.addEventListener('click', onNextBtnClick);
+const pagination = new Pagination(30, 5, refs.pageButtonsList);
+const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
+const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
+
+refs.nextBtnRef.addEventListener('click', nextBtnClick);
 refs.prevBtnRef.addEventListener('click', onPrevBtnClick);
 
-const pagination = new Pagination(30, 5, refs.pageButtonsList);
 
 
 const totalPages = 25;
