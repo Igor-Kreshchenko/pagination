@@ -1,4 +1,5 @@
 import './styles.css';
+import Pagination from './pagination';
 
 const refs = {
   paginListRef: document.querySelector('.pagination'),
@@ -11,6 +12,9 @@ const refs = {
 
 refs.nextBtnRef.addEventListener('click', onNextBtnClick);
 refs.prevBtnRef.addEventListener('click', onPrevBtnClick);
+
+const pagination = new Pagination(30, 5, refs.pageButtonsList);
+
 
 const totalPages = 25;
 const maxPages = 5;
