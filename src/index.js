@@ -9,14 +9,12 @@ const refs = {
   rightDotsRef: document.querySelector('.right-dots'),
 };
 
-const pagination = new Pagination(18, 5, refs);
+const pagination = new Pagination(25, 5, refs);
 const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
 refs.nextBtnRef.addEventListener('click', nextBtnClick);
 refs.prevBtnRef.addEventListener('click', prevtBtnClick);
-
-
 
 // const totalPages = 25;
 // const maxPages = 5;
@@ -24,14 +22,14 @@ refs.prevBtnRef.addEventListener('click', prevtBtnClick);
 
 // function onNextBtnClick() {
 //   pageButtons.forEach(value => {
-//     let btnIndex = value.dataset.action;
+//     let btnIndex = value.dataset.index;
 
 //     if (btnIndex > totalPages - maxPages) {
 //       return;
 //     }
 
-//     value.dataset.action = Number(btnIndex) + maxPages;
-//     value.textContent = value.dataset.action;
+//     value.dataset.index = Number(btnIndex) + maxPages;
+//     value.textContent = value.dataset.index;
 //   });
 
 //   toggleBtnVisibility();
@@ -39,14 +37,14 @@ refs.prevBtnRef.addEventListener('click', prevtBtnClick);
 
 // function onPrevBtnClick() {
 //   pageButtons.forEach(value => {
-//     let btnIndex = value.dataset.action;
+//     let btnIndex = value.dataset.index;
 
 //     if (btnIndex <= maxPages) {
 //       return;
 //     }
 
-//     value.dataset.action = Number(btnIndex) - maxPages;
-//     value.textContent = value.dataset.action;
+//     value.dataset.index = Number(btnIndex) - maxPages;
+//     value.textContent = value.dataset.index;
 //   });
 
 //   toggleBtnVisibility();
@@ -54,7 +52,7 @@ refs.prevBtnRef.addEventListener('click', prevtBtnClick);
 
 // function toggleBtnVisibility() {
 //   const buttonsList = refs.pageButtonsList.children;
-//   const firstBtnIndex = buttonsList[0].dataset.action;
+//   const firstBtnIndex = buttonsList[0].dataset.index;
 
 //   if (firstBtnIndex === '1') {
 //     hidePrevButton();

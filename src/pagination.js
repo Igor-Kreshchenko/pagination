@@ -7,14 +7,14 @@ export default class Pagination {
 
   onNextBtnClick() {
     this.refs.pageButtonsList.children.forEach(button => {
-      let btnIndex = button.dataset.action;
+      let btnIndex = button.dataset.index;
 
       if (btnIndex > this.totalPages - this.maxPages) {
         return;
       }
 
-      button.dataset.action = Number(btnIndex) + this.maxPages;
-      button.textContent = button.dataset.action;
+      button.dataset.index = Number(btnIndex) + this.maxPages;
+      button.textContent = button.dataset.index;
     });
 
     this.toggleBtnVisibility();
@@ -22,14 +22,14 @@ export default class Pagination {
 
   onPrevBtnClick() {
     this.refs.pageButtonsList.children.forEach(button => {
-      let btnIndex = button.dataset.action;
+      let btnIndex = button.dataset.index;
 
       if (btnIndex <= this.maxPages) {
         return;
       }
 
-      button.dataset.action = Number(btnIndex) - this.maxPages;
-      button.textContent = button.dataset.action;
+      button.dataset.index = Number(btnIndex) - this.maxPages;
+      button.textContent = button.dataset.index;
     });
 
     this.toggleBtnVisibility();
@@ -37,7 +37,7 @@ export default class Pagination {
 
   toggleBtnVisibility() {
     const buttonsList = this.refs.pageButtonsList.children;
-    const firstBtnIndex = buttonsList[0].dataset.action;
+    const firstBtnIndex = buttonsList[0].dataset.index;
 
     if (firstBtnIndex === '1') {
       this.hidePrevButton();
