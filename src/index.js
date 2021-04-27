@@ -2,7 +2,6 @@ import './styles.css';
 import Pagination from './pagination';
 
 const refs = {
-  paginListRef: document.querySelector('.pagination'),
   pageButtonsList: document.querySelector('.page-buttons'),
   prevBtnRef: document.querySelector('.prev-button'),
   nextBtnRef: document.querySelector('.next-button'),
@@ -10,7 +9,7 @@ const refs = {
   rightDotsRef: document.querySelector('.right-dots'),
 };
 
-const pagination = new Pagination(20, 5, refs);
+const pagination = new Pagination(18, 5, refs);
 const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
