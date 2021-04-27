@@ -1,1 +1,1 @@
-# pagination
+my webpack starter kit
