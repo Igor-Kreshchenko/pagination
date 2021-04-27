@@ -1,14 +1,13 @@
 export default class Pagination {
-  constructor(totalPages, maxPages, pageButtonsList) {
+  constructor(totalPages, maxPages, refs) {
     this.totalPages = totalPages;
     this.maxPages = maxPages;
-    this.buttonsRef = pageButtonsList;
+    this.refs = refs;
   }
 
   onNextBtnClick() {
-    this.buttonsRef.children.forEach(button => {
-        let btnIndex = button.dataset.action;
-    
+    this.refs.pageButtonsList.children.forEach(button => {
+      let btnIndex = button.dataset.action;
 
       if (btnIndex > this.totalPages - this.maxPages) {
         return;
@@ -18,11 +17,11 @@ export default class Pagination {
       button.textContent = button.dataset.action;
     });
 
-    // this.toggleBtnVisibility();
+    this.toggleBtnVisibility();
   }
 
   onPrevBtnClick() {
-    this.buttonsRef.children.forEach(button => {
+    this.refs.pageButtonsList.children.forEach(button => {
       let btnIndex = button.dataset.action;
 
       if (btnIndex <= this.maxPages) {
@@ -33,11 +32,11 @@ export default class Pagination {
       button.textContent = button.dataset.action;
     });
 
-    // this.toggleBtnVisibility();
+    this.toggleBtnVisibility();
   }
 
   toggleBtnVisibility() {
-    const buttonsList = this.buttonsRef.children;
+    const buttonsList = this.refs.pageButtonsList.children;
     const firstBtnIndex = buttonsList[0].dataset.action;
 
     if (firstBtnIndex === '1') {
@@ -51,5 +50,25 @@ export default class Pagination {
     } else {
       this.showNextButton();
     }
+  }
+
+  showPrevButton() {
+    this.refs.prevBtnRef.classList.remove('visually-hidden');
+    this.refs.leftDotsRef.classList.remove('visually-hidden');
+  }
+
+  hidePrevButton() {
+    this.refs.prevBtnRef.classList.add('visually-hidden');
+    this.refs.leftDotsRef.classList.add('visually-hidden');
+  }
+
+  showNextButton() {
+    this.refs.nextBtnRef.classList.remove('visually-hidden');
+    this.refs.rightDotsRef.classList.remove('visually-hidden');
+  }
+
+  hideNextButton() {
+    this.refs.nextBtnRef.classList.add('visually-hidden');
+    this.refs.rightDotsRef.classList.add('visually-hidden');
   }
 }

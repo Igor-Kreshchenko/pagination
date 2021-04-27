@@ -10,7 +10,7 @@ const refs = {
   rightDotsRef: document.querySelector('.right-dots'),
 };
 
-const pagination = new Pagination(30, 5, refs.pageButtonsList);
+const pagination = new Pagination(20, 5, refs);
 const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
@@ -19,73 +19,73 @@ refs.prevBtnRef.addEventListener('click', prevtBtnClick);
 
 
 
-const totalPages = 25;
-const maxPages = 5;
-const pageButtons = refs.pageButtonsList.children;
+// const totalPages = 25;
+// const maxPages = 5;
+// const pageButtons = refs.pageButtonsList.children;
 
-function onNextBtnClick() {
-  pageButtons.forEach(value => {
-    let btnIndex = value.dataset.action;
+// function onNextBtnClick() {
+//   pageButtons.forEach(value => {
+//     let btnIndex = value.dataset.action;
 
-    if (btnIndex > totalPages - maxPages) {
-      return;
-    }
+//     if (btnIndex > totalPages - maxPages) {
+//       return;
+//     }
 
-    value.dataset.action = Number(btnIndex) + maxPages;
-    value.textContent = value.dataset.action;
-  });
+//     value.dataset.action = Number(btnIndex) + maxPages;
+//     value.textContent = value.dataset.action;
+//   });
 
-  toggleBtnVisibility();
-}
+//   toggleBtnVisibility();
+// }
 
-function onPrevBtnClick() {
-  pageButtons.forEach(value => {
-    let btnIndex = value.dataset.action;
+// function onPrevBtnClick() {
+//   pageButtons.forEach(value => {
+//     let btnIndex = value.dataset.action;
 
-    if (btnIndex <= maxPages) {
-      return;
-    }
+//     if (btnIndex <= maxPages) {
+//       return;
+//     }
 
-    value.dataset.action = Number(btnIndex) - maxPages;
-    value.textContent = value.dataset.action;
-  });
+//     value.dataset.action = Number(btnIndex) - maxPages;
+//     value.textContent = value.dataset.action;
+//   });
 
-  toggleBtnVisibility();
-}
+//   toggleBtnVisibility();
+// }
 
-function toggleBtnVisibility() {
-  const buttonsList = refs.pageButtonsList.children;
-  const firstBtnIndex = buttonsList[0].dataset.action;
+// function toggleBtnVisibility() {
+//   const buttonsList = refs.pageButtonsList.children;
+//   const firstBtnIndex = buttonsList[0].dataset.action;
 
-  if (firstBtnIndex === '1') {
-    hidePrevButton();
-  } else {
-    showPrevButton();
-  }
+//   if (firstBtnIndex === '1') {
+//     hidePrevButton();
+//   } else {
+//     showPrevButton();
+//   }
 
-  if (firstBtnIndex >= totalPages - maxPages) {
-    hideNextButton();
-  } else {
-    showNextButton();
-    }
-}
+//   if (firstBtnIndex >= totalPages - maxPages) {
+//     hideNextButton();
+//   } else {
+//     showNextButton();
+//     }
+// }
 
-function showPrevButton() {
-  refs.prevBtnRef.classList.remove('visually-hidden');
-  refs.leftDotsRef.classList.remove('visually-hidden');
-}
+// function showPrevButton() {
+//   refs.prevBtnRef.classList.remove('visually-hidden');
+//   refs.leftDotsRef.classList.remove('visually-hidden');
+// }
 
-function hidePrevButton() {
-  refs.prevBtnRef.classList.add('visually-hidden');
-  refs.leftDotsRef.classList.add('visually-hidden');
-}
+// function hidePrevButton() {
+//   refs.prevBtnRef.classList.add('visually-hidden');
+//   refs.leftDotsRef.classList.add('visually-hidden');
+// }
 
-function showNextButton() {
-  refs.nextBtnRef.classList.remove('visually-hidden');
-  refs.rightDotsRef.classList.remove('visually-hidden');
-}
+// function showNextButton() {
+//   refs.nextBtnRef.classList.remove('visually-hidden');
+//   refs.rightDotsRef.classList.remove('visually-hidden');
+// }
 
-function hideNextButton() {
-  refs.nextBtnRef.classList.add('visually-hidden');
-  refs.rightDotsRef.classList.add('visually-hidden');
-}
+// function hideNextButton() {
+//   refs.nextBtnRef.classList.add('visually-hidden');
+//   refs.rightDotsRef.classList.add('visually-hidden');
+// }
