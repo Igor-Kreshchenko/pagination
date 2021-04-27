@@ -15,7 +15,7 @@ const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
 refs.nextBtnRef.addEventListener('click', nextBtnClick);
-refs.prevBtnRef.addEventListener('click', onPrevBtnClick);
+refs.prevBtnRef.addEventListener('click', prevtBtnClick);
 
 
 
