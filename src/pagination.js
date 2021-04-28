@@ -3,6 +3,11 @@ export default class Pagination {
     this.totalPages = totalPages;
     this.maxPages = maxPages;
     this.refs = refs;
+    this.currentPageIndex = '1';
+  }
+
+  onPageBtnClick(e) {
+    this.currentPageIndex = e.target.dataset.index;
   }
 
   onNextBtnClick() {
@@ -70,5 +75,9 @@ export default class Pagination {
   hideNextButton() {
     this.refs.nextBtnRef.classList.add('visually-hidden');
     this.refs.rightDotsRef.classList.add('visually-hidden');
+  }
+
+  get currentPage() {
+    return this.currentPageIndex;
   }
 }

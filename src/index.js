@@ -15,6 +15,8 @@ const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
 refs.nextBtnRef.addEventListener('click', nextBtnClick);
 refs.prevBtnRef.addEventListener('click', prevtBtnClick);
+refs.pageButtonsList.addEventListener('click', pagination.onPageBtnClick);
+
 
 // const totalPages = 25;
 // const maxPages = 5;
