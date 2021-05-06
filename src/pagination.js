@@ -1,7 +1,6 @@
 export default class Pagination {
-  constructor(totalPages, maxPages, refs) {
+  constructor(totalPages, refs) {
     this.totalPages = totalPages;
-    this.maxPages = maxPages;
     this.refs = refs;
     this.currentPageIndex = '1';
   }
@@ -14,11 +13,11 @@ export default class Pagination {
     this.refs.pageButtonsList.children.forEach(button => {
       let btnIndex = button.dataset.index;
 
-      if (btnIndex > this.totalPages - this.maxPages) {
+      if (btnIndex > this.totalPages) {
         return;
       }
 
-      button.dataset.index = Number(btnIndex) + this.maxPages;
+      button.dataset.index = Number(btnIndex) + 1;
       button.textContent = button.dataset.index;
     });
 
@@ -29,11 +28,11 @@ export default class Pagination {
     this.refs.pageButtonsList.children.forEach(button => {
       let btnIndex = button.dataset.index;
 
-      if (btnIndex <= this.maxPages) {
+      if (btnIndex <= 0) {
         return;
       }
 
-      button.dataset.index = Number(btnIndex) - this.maxPages;
+      button.dataset.index = Number(btnIndex) - 1;
       button.textContent = button.dataset.index;
     });
 
@@ -43,6 +42,7 @@ export default class Pagination {
   toggleBtnVisibility() {
     const buttonsList = this.refs.pageButtonsList.children;
     const firstBtnIndex = buttonsList[0].dataset.index;
+    const lastBtnIndex = buttonsList[4].dataset.index;
 
     if (firstBtnIndex === '1') {
       this.hidePrevButton();
@@ -50,7 +50,7 @@ export default class Pagination {
       this.showPrevButton();
     }
 
-    if (firstBtnIndex >= this.totalPages - this.maxPages) {
+    if (lastBtnIndex >= this.totalPages) {
       this.hideNextButton();
     } else {
       this.showNextButton();

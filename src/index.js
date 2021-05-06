@@ -9,7 +9,7 @@ const refs = {
   rightDotsRef: document.querySelector('.right-dots'),
 };
 
-const pagination = new Pagination(20, 5, refs);
+const pagination = new Pagination(2, refs);
 const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
 
