@@ -23,7 +23,10 @@ export default class Pagination {
     }
 
     this.refs.pageButtonsList.append(...buttons);
-    this.toggleBtnVisibility();
+
+    if (this.totalPages<=5) {
+      this.hideNextButton();
+    }
   }
 
   onPageBtnClick(e) {
