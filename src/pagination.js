@@ -5,6 +5,8 @@ export default class Pagination {
     this.currentPageIndex = '1';
 
     this.createButtons();
+    this.hidePrevButton();
+    this.setLastPageBtn();
   }
 
   createButtons() {
@@ -24,13 +26,17 @@ export default class Pagination {
 
     this.refs.pageButtonsList.append(...buttons);
 
-    if (this.totalPages<=5) {
+    if (this.totalPages <= 5) {
       this.hideNextButton();
     }
   }
 
   onPageBtnClick(e) {
     this.currentPageIndex = e.target.dataset.index;
+  }
+
+  setLastPageBtn() {
+    this.refs.lastPage.textContent = this.totalPages;
   }
 
   onNextBtnClick() {
@@ -82,21 +88,25 @@ export default class Pagination {
   }
 
   showPrevButton() {
+    this.refs.firstPage.classList.remove('visually-hidden');
     this.refs.prevBtnRef.classList.remove('visually-hidden');
     this.refs.leftDotsRef.classList.remove('visually-hidden');
   }
 
   hidePrevButton() {
+    this.refs.firstPage.classList.add('visually-hidden');
     this.refs.prevBtnRef.classList.add('visually-hidden');
     this.refs.leftDotsRef.classList.add('visually-hidden');
   }
 
   showNextButton() {
+    this.refs.lastPage.classList.remove('visually-hidden');
     this.refs.nextBtnRef.classList.remove('visually-hidden');
     this.refs.rightDotsRef.classList.remove('visually-hidden');
   }
 
   hideNextButton() {
+    this.refs.lastPage.classList.add('visually-hidden');
     this.refs.nextBtnRef.classList.add('visually-hidden');
     this.refs.rightDotsRef.classList.add('visually-hidden');
   }

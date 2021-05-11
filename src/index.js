@@ -3,13 +3,15 @@ import Pagination from './pagination';
 
 const refs = {
   pageButtonsList: document.querySelector('.page-buttons'),
+  firstPage: document.querySelector('.first-page-btn'),
   prevBtnRef: document.querySelector('.prev-button'),
   nextBtnRef: document.querySelector('.next-button'),
   leftDotsRef: document.querySelector('.left-dots'),
   rightDotsRef: document.querySelector('.right-dots'),
+  lastPage: document.querySelector('.last-page-btn'),
 };
 
-const pagination = new Pagination(12, refs);
+const pagination = new Pagination(8, refs);
 
 const nextBtnClick = pagination.onNextBtnClick.bind(pagination);
 const prevtBtnClick = pagination.onPrevBtnClick.bind(pagination);
