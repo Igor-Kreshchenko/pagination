@@ -3,6 +3,27 @@ export default class Pagination {
     this.totalPages = totalPages;
     this.refs = refs;
     this.currentPageIndex = '1';
+
+    this.createButtons();
+  }
+
+  createButtons() {
+    const buttons = [];
+
+    for (let i = 1; i <= this.totalPages; i += 1) {
+      if (i > 5) {
+        break;
+      } else {
+        const newButton = document.createElement('button');
+        newButton.classList.add('page-button');
+        newButton.textContent = i;
+        newButton.setAttribute('data-index', i);
+        buttons.push(newButton);
+      }
+    }
+
+    this.refs.pageButtonsList.append(...buttons);
+    this.toggleBtnVisibility();
   }
 
   onPageBtnClick(e) {
